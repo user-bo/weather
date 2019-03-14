@@ -99,5 +99,5 @@ You do not have permission to publish ***
 - 问题解决：  
 修改自己的npm包名字  
 ### 参考作者
-高手：[Jason Maurer](https://timber.io/blog/creating-a-real-world-cli-app-with-node/#parsing-commands-and-arguments)
+高手：[Jason Maurer](https://timber.io/blog/creating-a-real-world-cli-app-with-node/#parsing-commands-and-arguments)  
 高手：[PengJiyuan](https://www.jianshu.com/p/cd9cf12d0e31)
