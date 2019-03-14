@@ -1,7 +1,27 @@
 # weather
 
 ## 构建命令行工具-cli
+### 创建项目
+1、初始化一个项目
+```
+mkdir demo
+cd demo
+npm init --yes
+```  
 
+2、新建一个bin文件夹，同时新建一个outside文件夹和index.js文件
+``` outside/index.js
+#!/usr/bin/env node
+require('../../')()
+
+```
+3、修改package.json文件，加上一个bin字段
+```
+"bin": {
+    "outside": "bin/outside/index.js"
+  },
+  "scripts": {},
+```
 
 ## 删掉包
 npm unpublish --force 
@@ -13,8 +33,9 @@ npm unpublish --force
 - 问题表现：npm link 首次成功，后面unlink，再link失败
 - 问题原因：可能npm缓存没清干净
 - 问题解决：换了个文件夹名字
+
 ### 问题
-- 问题表现：
+- 问题表现：  
   code EPERM  
   errno -4048  
   syscall unlink
@@ -25,22 +46,21 @@ npm unpublish --force
   （注意：登录时需要输入邮箱，后面发布时，还得先认证邮箱，所以请填写正确的邮箱）
 
 ### 问题
-问题表现
+- 问题表现:  
 npm ERR! no_perms Private mode enable, only admin can publish this module
-问题原因：
+- 问题原因：  
 把npm的镜像代理到淘宝或者别的地方了
-问题解决：
-设置回原来的镜像
+- 问题解决：  
+设置回原来的镜像  
 npm config set registry=http://registry.npmjs.org
 
 ### 问题
-问题表现：
-publish Failed PUT 403
-code E403
+- 问题表现：  
+publish Failed PUT 403  
+code E403  
 You do not have permission to publish ***
-问题原因：
+- 问题原因：  
 在npm仓库上可能存在与你同名的npm包
-问题解决：
-修改自己的npm包名字
-
-(https://timber.io/blog/creating-a-real-world-cli-app-with-node/#parsing-commands-and-arguments)
+- 问题解决：  
+修改自己的npm包名字  
+[参考作者：](https://timber.io/blog/creating-a-real-world-cli-app-with-node/#parsing-commands-and-arguments)
