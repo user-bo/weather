@@ -6,7 +6,7 @@ module.exports = async (location, type) => {
 
   const results = await axios({
     method: 'get',
-    url: `http://v.juhe.cn/weather/index?cityname=${location}&dtype=&format=${type}&key=13c84a0898b333ab04744900af913ec2`,
+    url: `http://v.juhe.cn/weather/index?cityname=${location}&dtype=&format=${type}&key=*****a0898b333ab04744900af913ec2`,
     params: {
       fromat: 'json',
       q:
