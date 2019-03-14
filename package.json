@@ -1,0 +1,33 @@
+{
+  "name": "user-bo-weather",
+  "version": "1.0.0",
+  "description": "一个可以获取中国各地区天气预报的命令行工具",
+  "main": "index.js",
+  "homepage": "git@github.com:user-bo/weather.git#readme",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:user-bo/weather.git"
+  },
+  "bin": {
+    "weather": "bin/outside/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "weather",
+    "forecast",
+    "rain"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "minimist": "^1.2.0",
+    "ora": "^3.2.0"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "preferGlobal": true
+}
