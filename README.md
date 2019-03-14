@@ -101,3 +101,28 @@ You do not have permission to publish ***
 ### 参考作者
 高手：[Jason Maurer](https://timber.io/blog/creating-a-real-world-cli-app-with-node/#parsing-commands-and-arguments)  
 高手：[PengJiyuan](https://www.jianshu.com/p/cd9cf12d0e31)
+
+### 版本格式
+版本格式：主版本号.次版本号.修订号，版本号递增规则如下：
+
+1.主版本号：当你做了不兼容的 API 修改，
+2.次版本号：当你做了向下兼容的功能性新增，
+3.修订号：当你做了向下兼容的问题修正。
+
+先行版本号及版本编译元数据可以加到“主版本号.次版本号.修订号”的后面，作为延伸。
+[版本号规范文档](https://semver.org/lang/zh-CN/)
+
+### 持续集成
+目前Github已经整合了持续集成服务travis，我们只需要在项目中添加.travis.yml文件，在下一次push之后，travis就会定时执行npm test来测试你的项目，并且会在测试失败的时候通知到你
+
+.travis.yml 是一个YAML文件，具体的相关的配置见[This](https://docs.travis-ci.com/user/languages/javascript-with-nodejs/)，例子如下：
+```
+language: node_js
+node_js:
+  - "6"
+  - "6.1"
+  - "5.11"
+services:
+  - mongodb
+```
+这个例子的是让travis在node.js的0.6.x，0.6.1，0.5.11三个版本下对项目进行测试，并且需要mongodb的服务。
