@@ -1,6 +1,4 @@
-# weather
-
-## 构建命令行工具-cli
+## 构建命令行工具-weather-cli
 
 ### 创建项目
 1、初始化一个项目
@@ -10,19 +8,55 @@ cd demo
 npm init --yes
 ```  
 
-2、新建一个bin文件夹，同时新建一个outside文件夹和index.js文件
-``` outside/index.js
+2、根目录下新建文件index.js，和新建一个bin文件夹，同时新建一个outside文件夹和index.js文件
+``` 
+// index.js
+module.exports = () => {
+  console.log('Welcome to the outside');
+}
+
+// outside/index.js
 #!/usr/bin/env node
 require('../../')()
 
 ```
 3、修改package.json文件，加上一个bin字段
 ```
+...
 "bin": {
-    "outside": "bin/outside/index.js"
-  },
-  "scripts": {},
+  "outside": "bin/outside/index.js"
+},
+"scripts": {},
+...
+
 ```
+4、这样就完成一个简单的命令行工具啦。npm link后，运行weather指令，看看
+5、快速开发版
+```
+// 第一步和1，初始化一个项目
+// 第二步outside/index.js文件改为如下
+#!/usr/bin/env node
+const program = require('commander');
+
+program
+  .version('0.1.0')
+  .option('-n, --yourname [yourname]', 'Your name')
+  .option('-g, --glad', 'Tell us you are happy')
+  .parse(process.argv);
+
+if (program.yourname) {
+  console.log(`Hello, ${program.yourname}! ${program.glad ? 'I am very happy to see you!' : ''}`);
+}
+```
+6、常用工具
+- Commander.js - 帮助参数解析，我最常用
+- optionator - 帮助参数解析，Eslint 使用
+- Inquirer.js - 常见交互式命令行
+- chalk - 命令行输出自定义颜色
+- minimist - 参数列表对象化
+
+### 发布项目
+执行npm publish，就可以了
 
 ## 删掉包
 npm unpublish --force 
@@ -64,4 +98,6 @@ You do not have permission to publish ***
 在npm仓库上可能存在与你同名的npm包
 - 问题解决：  
 修改自己的npm包名字  
-[参考作者：](https://timber.io/blog/creating-a-real-world-cli-app-with-node/#parsing-commands-and-arguments)
+### 参考作者
+高手：[Jason Maurer](https://timber.io/blog/creating-a-real-world-cli-app-with-node/#parsing-commands-and-arguments)
+高手：[PengJiyuan](https://www.jianshu.com/p/cd9cf12d0e31)
